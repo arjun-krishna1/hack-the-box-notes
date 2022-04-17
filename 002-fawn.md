@@ -1,0 +1,46 @@
+# Intro
+- nmap -> enumerate ports open
+- file transfer services have high chances to be poorly configured
+- File Transfer Protocol (FTP)
+  - Used by many OS's for a long time for file transfer tasks (automated or manual)
+  - Can be easily misconfigured if not correctly understood
+  - May have a hole created by employee to bypass fle check or firewall rules
+  - Viable case we may meet in the wild
+  - Can transfer log files from one device to a log collection server
+  - Network engineer in charge of config could forget to secure the receiving FRP server properly
+  - Or deem it is not important to secure
+  - FTP service could be unsecured
+- Attacker can cain logs and extract all kinds of information from them
+- Can later be used to ma out the network, enumerate usernames, detect active services, and more
+- FTP:
+  -  std. comms protocol
+  -  transfer computer files from a server to client on computer network
+  -  FTP is built on a client-server model arch
+  -  Separate control and ata connections between the client and server
+  -  FTP users may authenticate using a clear-text sign-in protocol
+  -  username and password
+  -  server may be configured to allow anon access
+  -  FTP is often secured with SSL/TLS (FTPS) to secure transmission that protects the username and passwords to encrypt the content
+  -  or SSH (SFTP)
+-  client-server model architecture:
+  -  the roles hosts in the network have
+  -  during hte act of transferring data between them
+  -  users can download and upload files from the client (their own host)
+  -  to the server (centralized data storage device)
+  -  vice/versa
+-  client is alwas the host that downloads and uploads files to the server
+-  server is always the host that safely stores the data being transferred
+-  clients can browse available files on server when using FTP
+  -  from perspective of user's terminal
+  -  seems like browsing their own OS's directories for files that they need
+-  What does it mean for a port to be running a service openly?
+  -  port running an active service is a reserved space for the IP address of the target
+    -  to receive requests and send results from
+    -  tunnel for clients to access service on server
+      -  includes sending requests and recieving results
+-  With only IP addresses or hostnames, the hosts could only do 1 task at a time
+-  IP address could only be used for 1 task at a time, but not the same at once
+-  Ports allow one IP address to handle multiple services, adds another layer of distinction
+-  Box can be configured to have different services on different ports
+-  FTP by itself could take username and password, but those could be intercepted by a MitM attack
+  - contents can be read in plaintext  
